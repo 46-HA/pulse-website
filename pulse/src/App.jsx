@@ -1,23 +1,35 @@
-import { Routes, Route } from 'react-router-dom'
-import { motion } from 'framer-motion'
-import Navbar from './components/Navbar'
-import AudioPlayer from './components/AudioPlayer'
-import FAQ from './components/FAQ'
-import Demo from './pages/Demo'
-import SpotifyGuide from './pages/SpotifyGuide'
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
 
-export default function App() {
+function App() {
+  const [count, setCount] = useState(0)
+
   return (
-    <div className="app">
-      <Navbar />
-      <AudioPlayer />
-      <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
-        <Routes>
-          <Route path="/" element={<FAQ />} />
-          <Route path="/demo" element={<Demo />} />
-          <Route path="/guide" element={<SpotifyGuide />} />
-        </Routes>
-      </motion.main>
-    </div>
+    <>
+      <div>
+        <a href="https://vite.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+      </div>
+      <h1>Vite + React</h1>
+      <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.jsx</code> and save to test HMR
+        </p>
+      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
+    </>
   )
 }
+
+export default App
