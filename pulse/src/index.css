@@ -1,118 +1,169 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
-
-:root {
-  --primary-color: #1db954;
-  --background-color: #121212;
-  --text-color: #ffffff;
-  --button-hover-color: #1ed760;
+/* Reset and base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  font-family: 'Orbitron', sans-serif;
-  background-color: var(--background-color);
-  color: var(--text-color);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  overflow: hidden;
+  background: #191414;
+  color: #1DB954;
+  font-family: 'Reenie Beanie', cursive;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .app {
-  text-align: center;
-  width: 100%;
-  max-width: 1200px;
-  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 20px 40px;
+  position: relative;
 }
 
-.landing {
+main {
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  gap: 3rem;
 }
 
-.landing h1 {
-  font-size: 3rem;
-  margin-bottom: 20px;
-  color: var(--primary-color);
+/* Hack Club Header */
+.hackclub-header img {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: 256px;
+  z-index: 9999;
 }
 
-.landing button {
-  padding: 10px 20px;
-  font-size: 1.2rem;
-  background-color: var(--primary-color);
-  border: none;
-  border-radius: 5px;
-  color: var(--text-color);
+/* Wavy background */
+.app::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 60vh;
+  background: linear-gradient(135deg, #1DB954 20%, #191414 80%);
+  clip-path: polygon(
+    0 20%, 10% 30%, 20% 10%, 30% 20%, 40% 10%, 50% 20%, 
+    60% 10%, 70% 20%, 80% 10%, 90% 20%, 100% 10%, 100% 0, 0 0
+  );
+  z-index: -1;
+  animation: wave 6s ease-in-out infinite;
+}
+
+@keyframes wave {
+  0%, 100% {
+    clip-path: polygon(
+      0 20%, 10% 30%, 20% 10%, 30% 20%, 40% 10%, 50% 20%, 
+      60% 10%, 70% 20%, 80% 10%, 90% 20%, 100% 10%, 100% 0, 0 0
+    );
+  }
+  50% {
+    clip-path: polygon(
+      0 10%, 10% 20%, 20% 30%, 30% 10%, 40% 20%, 50% 10%, 
+      60% 20%, 70% 10%, 80% 20%, 90% 10%, 100% 20%, 100% 0, 0 0
+    );
+  }
+}
+
+/* Headings */
+h1, h2 {
+  color: #1DB954;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  cursor: default;
+  user-select: none;
+}
+
+/* Links */
+a {
+  color: #1DB954;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #1ed760;
+}
+
+/* Buttons */
+button {
   cursor: pointer;
+  font-family: 'Reenie Beanie', cursive;
+  background: #1DB954;
+  color: #191414;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+  font-size: 1.1rem;
   transition: background-color 0.3s ease;
+  box-shadow: 0 0 10px #1DB954aa;
 }
 
-.landing button:hover {
-  background-color: var(--button-hover-color);
+button:hover {
+  background: #1ed760;
 }
 
-.audio-player {
-  margin-top: 50px;
-}
-
-.controls {
+/* Radio player */
+.radio {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #1DB954dd;
+  padding: 10px 15px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px #1DB954cc;
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 20px;
-  margin-top: 20px;
+  gap: 10px;
+  user-select: none;
+  animation: fadeInUp 1s ease forwards;
 }
 
-.controls button {
-  background: none;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Form styling */
+.submission-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 400px;
+  margin-top: 0.5rem;
+}
+
+.submission-form input,
+.submission-form textarea {
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
   border: none;
-  color: var(--text-color);
-  font-size: 2rem;
-  cursor: pointer;
+  font-family: 'Reenie Beanie', cursive;
+  font-size: 1.1rem;
 }
 
-.controls input {
-  width: 100px;
+.submission-form textarea {
+  resize: vertical;
+  min-height: 80px;
 }
 
-.faq {
-  margin-top: 50px;
-  text-align: left;
+/* Slack button */
+.slack-button {
+  margin-top: 1rem;
+  background-color: #1DB954;
+  box-shadow: 0 0 10px #1DB954bb;
 }
 
-.faq h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: var(--primary-color);
-}
-
-.faq-item {
-  margin-bottom: 15px;
-}
-
-.faq-item strong {
-  display: block;
-  margin-bottom: 5px;
-}
-
-.placeholder {
-  margin-top: 50px;
-  font-size: 1.5rem;
-  color: var(--text-color);
-}
-
-.controls button,
-.landing button {
-  border-radius: 50%;
-  padding: 15px;
-  font-size: 1.5rem;
-  transition: transform 0.3s ease;
-}
-
-.controls button:hover,
-.landing button:hover {
-  transform: scale(1.1);
+.slack-button:hover {
+  background-color: #1ed760;
 }

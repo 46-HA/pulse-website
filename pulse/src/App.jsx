@@ -1,33 +1,22 @@
-import { Routes, Route } from 'react-router-dom'
-import { useState } from 'react'
-import Navbar from './components/Navbar'
-import AudioPlayer from './components/AudioPlayer'
-import FAQ from './components/FAQ'
-import Demo from './pages/Demo'
-import SpotifyGuide from './pages/SpotifyGuide'
+import React from 'react';
+import Header from './components/Header.jsx';
+import Radio from './components/Radio.jsx';
+import Hero from './components/Hero.jsx';
+import FAQ from './components/FAQ.jsx';
+import SubmissionForm from './components/SubmissionForm.jsx';
 
-export default function App() {
-  const [hasEntered, setHasEntered] = useState(false)
-
+function App() {
   return (
-    <div className={`app ${hasEntered ? 'entered' : ''}`}>
-      <Navbar />
-      {!hasEntered ? (
-        <div className="landing">
-          <h1>Pulse</h1>
-          <button onClick={() => setHasEntered(true)}>Enter Pulse</button>
-        </div>
-      ) : (
-        <>
-          <AudioPlayer />
-          <FAQ />
-          <div className="controls">
-            <button>Spotify API Guide</button>
-            <button>Demo Project</button>
-            <button>Submit</button>
-          </div>
-        </>
-      )}
+    <div className="app">
+      <Header />
+      <Radio />
+      <main>
+        <Hero />
+        <FAQ />
+        <SubmissionForm />
+      </main>
     </div>
-  )
+  );
 }
+
+export default App;
