@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pulse</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="wave-bg"></div>
+
+  <header>
+    <div class="logo-container">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg" alt="Spotify" class="spotify-logo" />
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero section">
+      <h1>Pulse</h1>
+      <p>Build a project using the Spotify API, get a month of Spotify Premium.</p>
+    </section>
+
+    <section class="submission section">
+      <button onclick="window.location.href='https://example.com'">Submit Project</button>
+      <button class="slack" onclick="window.open('https://join.slack.com/t/hackclub/shared_invite/xyz', '_blank')">Join the Slack</button>
+    </section>
+
+    <section class="faq section">
+      <h2>FAQs</h2>
+      <ul>
+        <li><strong>What is a YSWS?</strong><p>A program by Hack Club. Build something and get rewarded!</p></li>
+        <li><strong>Can I do this more than once?</strong><p>No, only once.</p></li>
+        <li><strong>How long must I work?</strong><p>At least 3 hours (on Hackatime).</p></li>
+        <li><strong>How will I receive Spotify Premium?</strong><p>You'll get a redeemable gift card once approved.</p></li>
+        <li><strong>How do I track my time?</strong><p><a href="https://hackatime.hackclub.com" target="_blank">Use Hackatime</a></p></li>
+        <li><strong>Who is running this?</strong><p>Hack Club! A nonprofit helping teenagers code.</p></li>
+        <li><strong>What can I make?</strong><p>Anything using the Spotify API — playlist tools, visualizers, etc.</p></li>
+        <li><strong>Do I have to be a teenager?</strong><p>Yes, it's for middle and high schoolers only.</p></li>
+      </ul>
+    </section>
+  </main>
+
+  <script>
+    const logo = document.querySelector('.spotify-logo');
+    logo.addEventListener('click', () => {
+      logo.classList.toggle('rotate');
+    });
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('in-view');
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.section').forEach(sec => observer.observe(sec));
+  </script>
+</body>
+</html>
