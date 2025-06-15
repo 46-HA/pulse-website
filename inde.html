@@ -162,7 +162,7 @@
     color: #1DB954;
   }
   button.slack:hover {
-    background-color: #1DB954;
+    background-color: #eee;
   }
 
   .faq {
@@ -324,16 +324,12 @@
     <h1>Pulse</h1>
     <p>Build a project using the Spotify API, get a month of Spotify Premium.</p>
   </section>
-
-  <div class="logo-container">
-    <img src="https://assets.hackclub.com/icon-rounded.svg" alt="Hack Club" class="hackclub-logo" tabindex="0" role="button" aria-label="Hack Club Logo" />
-    <span class="plus-sign">+</span>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify" class="spotify-logo" tabindex="0" role="button" aria-label="Spotify Logo" />
-  </div>
+  
 
   <section class="submission section in-view">
-    <button onclick="window.location.href='https://example.com'">Spotify API</button>
-    <button onclick="window.location.href='https://example.com'">Demo</button>
+    <button id="submit-btn" aria-label="Submit your project">Submit</button>
+    <button class="slack" onclick="window.open('https://hackclub.slack.com','_blank')">Join Slack</button>
+    <button id="example-btn" aria-label="Example redirect">Example</button>
   </section>
 
   <section class="faq section in-view">
@@ -370,7 +366,7 @@
         <p>Haven't thought out rules yet</p>
       </li>
       <li><strong>Where can I learn more?</strong>
-        <p>Visit <a href="https://hackclub.com">hackclub.com</a> and join the Slack to ask questions in #pulse-ysws.</p>
+        <p>Visit <a href="https://hackclub.com">hackclub.com</a> or join the Slack to ask questions and get updates.</p>
       </li>
     </ul>
   </section>
@@ -440,6 +436,7 @@
   const volumeFullIcon = document.getElementById('volume-full');
   const rewindBtn = document.getElementById('rewind-btn');
   const fastforwardBtn = document.getElementById('fastforward-btn');
+  const exampleBtn = document.getElementById('example-btn');
 
   function togglePlay() {
     if (audio.paused) {
@@ -496,33 +493,23 @@
     audio.currentTime = Math.min(audio.duration, audio.currentTime + 5);
   });
 
+  exampleBtn.addEventListener('click', () => {
+    window.open('https://example.com', '_blank');
+  });
+
   // Rotation on logos
-  const hackclubLogo = document.querySelector('.hackclub-logo');
+  const hackclubLogo = document.querySelector('.hackclub-banner');
   const spotifyLogo = document.querySelector('.spotify-logo');
 
   function rotateLogo(e) {
     const el = e.currentTarget;
-    if(el.classList.contains('rotate')) return; // prevent multi spins
+    if(el.classList.contains('rotate')) return; 
     el.classList.add('rotate');
     setTimeout(() => {
       el.classList.remove('rotate');
     }, 1000);
   }
-  hackclubLogo.addEventListener('click', rotateLogo);
-  spotifyLogo.addEventListener('click', rotateLogo);
-
-  hackclubLogo.addEventListener('keydown', e => {
-    if(e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      rotateLogo({currentTarget: hackclubLogo});
-    }
-  });
-  spotifyLogo.addEventListener('keydown', e => {
-    if(e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      rotateLogo({currentTarget: spotifyLogo});
-    }
-  });
+  if (hackclubLogo) hackclubLogo.addEventListener('click', rotateLogo);
 
   // Scroll fade in
   const sections = document.querySelectorAll('.section');
