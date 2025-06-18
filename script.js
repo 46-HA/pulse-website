@@ -35,7 +35,9 @@ volumeBar.addEventListener('input', () => {
 });
 
 progressBar.addEventListener('input', () => {
-  audio.currentTime = (progressBar.value / 100) * audio.duration;
+  if (audio.duration) {
+    audio.currentTime = (progressBar.value / 100) * audio.duration;
+  }
 });
 
 audio.addEventListener('timeupdate', () => {
