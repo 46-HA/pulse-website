@@ -1,8 +1,11 @@
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+/* Body and background */
 body {
   font-family: 'Sora', sans-serif;
   background: linear-gradient(160deg, #1DB954, #1A1F1C, #0E0F0E);
@@ -13,8 +16,8 @@ body {
   scroll-behavior: smooth;
   position: relative;
   padding-bottom: 140px;
+  cursor: url('cursor.ani'), auto;
 }
-
 
 @keyframes gradientMove {
   0% { background-position: 0% 50%; }
@@ -22,15 +25,17 @@ body {
   100% { background-position: 0% 50%; }
 }
 
+/* Hack Club banner */
 .hackclub-banner {
   position: fixed;
-  top: 0;
+  top: 10px; /* or top: 0 for no gap */
   left: 0;
   width: 256px;
   border: none;
   z-index: 9999;
 }
 
+/* Wave background */
 .wave-bg {
   position: fixed;
   top: 0;
@@ -45,6 +50,7 @@ body {
   animation: wave 6s ease-in-out infinite;
   z-index: -1;
 }
+
 @keyframes wave {
   0%, 100% {
     clip-path: polygon(
@@ -60,6 +66,7 @@ body {
   }
 }
 
+/* Container layout */
 .container {
   max-width: 900px;
   margin: 0 auto;
@@ -68,6 +75,7 @@ body {
   z-index: 10;
 }
 
+/* Section fade-in animation */
 .section {
   opacity: 0;
   transform: translateY(40px);
@@ -78,6 +86,7 @@ body {
   transform: translateY(0);
 }
 
+/* Hero section */
 .hero {
   text-align: center;
   margin-bottom: 3rem;
@@ -95,6 +104,7 @@ body {
   line-height: 1.6;
 }
 
+/* Logos and container */
 .logo-container {
   margin: 3rem auto 2rem;
   display: flex;
@@ -121,7 +131,7 @@ body {
   filter: drop-shadow(0 0 10px #ffffffaa);
 }
 
-/* Rotation animation */
+/* Spin animation on click */
 .rotate {
   animation: spin 1s linear forwards;
 }
@@ -130,10 +140,13 @@ body {
   to { transform: rotate(360deg);}
 }
 
+/* Submission section */
 .submission {
   text-align: center;
   margin-bottom: 3rem;
 }
+
+/* Buttons */
 button {
   background-color: #1DB954;
   color: #191414;
@@ -157,8 +170,10 @@ button.slack {
 }
 button.slack:hover {
   background-color: #1DB954;
+  color: #fff;
 }
 
+/* FAQ styling */
 .faq {
   margin-top: 2rem;
 }
@@ -177,6 +192,13 @@ button.slack:hover {
   max-width: 700px;
   margin: 0 auto;
 }
+.faq li {
+  background: #121212cc;
+  border: 1px solid #1DB954aa;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 0 10px #1DB95433;
+}
 .faq li p {
   margin-top: 0.3rem;
   line-height: 1.5;
@@ -190,6 +212,7 @@ a:hover {
   color: #1ed760;
 }
 
+/* Radio player */
 .radio-player {
   position: fixed;
   bottom: 20px;
@@ -244,6 +267,7 @@ a:hover {
   background: #1DB95433;
 }
 
+/* Progress slider */
 .progress-container {
   width: 100%;
 }
@@ -292,7 +316,6 @@ input[type=range]:hover {
   width: 50%;
   height: 8px;
 }
-
 .volume-icon {
   width: 22px;
   height: 22px;
@@ -300,31 +323,11 @@ input[type=range]:hover {
   filter: drop-shadow(0 0 6px #1DB954aa);
 }
 
+/* Responsive */
 @media (max-width: 768px) {
   .hackclub-banner {
     width: 140px;
   }
-
-  .radio-player {
-    display: none;
-  }
-}
-
-/* FAQ card style */
-.faq li {
-  background: #121212cc;
-  border: 1px solid #1DB954aa;
-  border-radius: 12px;
-  padding: 1rem;
-  box-shadow: 0 0 10px #1DB95433;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .hackclub-banner {
-    width: 140px;
-  }
-
   .radio-player {
     display: none;
   }

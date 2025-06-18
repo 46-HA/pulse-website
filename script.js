@@ -40,6 +40,16 @@ const volumeBar = document.getElementById('volume-bar');
 const volumeMute = document.getElementById('volume-mute');
 const volumeFull = document.getElementById('volume-full');
 
+document.querySelectorAll('.spotify-logo, .hackclub-logo').forEach(logo => {
+  logo.addEventListener('click', () => {
+    logo.classList.add('rotate');
+    logo.addEventListener('animationend', () => {
+      logo.classList.remove('rotate');
+    }, { once: true });
+  });
+});
+
+
 function updatePlayPauseIcons() {
   if (audio.paused) {
     playIcon.style.display = 'inline';
@@ -111,3 +121,5 @@ window.addEventListener('load', () => {
   updatePlayPauseIcons();
   updateVolumeIcons();
 });
+
+
