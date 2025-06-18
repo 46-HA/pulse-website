@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Pulse</title>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Pulse</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <a href="https://hackclub.com/">
@@ -31,45 +31,45 @@
     </div>
 
     <section class="submission section in-view">
-      <button onclick="window.location.href='https://example.com/spotify-api'">Spotify API</button>
-      <button onclick="window.location.href='https://example.com/demo'">Demo</button>
-      <button onclick="window.location.href='https://example.com/submit'">Submit Your Project</button>
+      <button onclick="window.location.href='https://example.com'">Spotify API</button>
+      <button onclick="window.location.href='https://example.com'">Demo</button>
+      <button class="submit-project-btn" onclick="window.location.href='https://example.com/submit'">Submit Project</button>
     </section>
 
     <section class="faq section in-view">
       <h2>FAQ</h2>
       <ul>
-        <li><strong>What is a YSWS?</strong>
+        <li class="faq-card"><strong>What is a YSWS?</strong>
           <p>YSWS is a challenge where you create cool projects using the Spotify API and earn awesome rewards for your work.</p>
         </li>
-        <li><strong>Can I participate more than once?</strong>
+        <li class="faq-card"><strong>Can I participate more than once?</strong>
           <p>Each participant can submit only one project.</p>
         </li>
-        <li><strong>What if I need help with the API?</strong>
+        <li class="faq-card"><strong>What if I need help with the API?</strong>
           <p>Check the Spotify API documentation or ask in #pulse-ysws on Slack.</p>
         </li>
-        <li><strong>How much time do I need to receive Spotify Premium?</strong>
-          <p>You just need a minimum of 3 hours. It is recommended that you spend more time to polish your app.</p>
+        <li class="faq-card"><strong>How much time do I need to recieve Spotify Premium?</strong>
+          <p>You just need a mininium of 3 hours. It is recommended that you spend more time to polish your app.</p>
         </li>
-        <li><strong>How will I receive my Spotify Premium?</strong>
+        <li class="faq-card"><strong>How will I receive my Spotify Premium?</strong>
           <p>The submission deadline is June 30, 2025. Late entries will not be accepted.</p>
         </li>
-        <li><strong>What are the prizes?</strong>
+        <li class="faq-card"><strong>What are the prizes?</strong>
           <p>If you ship a project that qualifies, you will get a 1 month gift card that can be redeemed for Spotify Premium.</p>
         </li>
-        <li><strong>Who can participate?</strong>
+        <li class="faq-card"><strong>Who can participate?</strong>
           <p>Any middle or high schooler.</p>
         </li>
-        <li><strong>How do I track my time?</strong>
+        <li class="faq-card"><strong>How do I track my time?</strong>
           <p><a href="https://hackatime.hackclub.com">Hackatime</a></p>
         </li>
-        <li><strong>What kinds of projects can I build?</strong>
+        <li class="faq-card"><strong>What kinds of projects can I build?</strong>
           <p>You can create playlist generators, music visualizers, emotion-based music players, Spotify bots, mood trackers, collaborative playlists, or any creative app that uses the Spotify API.</p>
         </li>
-        <li><strong>What are the rules?</strong>
+        <li class="faq-card"><strong>What are the rules?</strong>
           <p>Haven't thought out rules yet</p>
         </li>
-        <li><strong>Where can I learn more?</strong>
+        <li class="faq-card"><strong>Where can I learn more?</strong>
           <p>Visit <a href="https://hackclub.com">hackclub.com</a> and join the Slack to ask questions in #pulse-ysws.</p>
         </li>
       </ul>
@@ -78,32 +78,42 @@
 
   <div class="radio-player" aria-label="Audio player">
     <audio id="radio-audio" src="fred-again-places-to-be.mp3"></audio>
-    <div class="radio-screen">Places To Be - Fred Again</div>
+    <div class="radio-screen" aria-live="polite" aria-atomic="true" aria-relevant="text">
+      Places To Be - Fred Again
+    </div>
 
-    <div class="volume-container">
-      <svg id="volume-mute" class="volume-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <div class="volume-container" aria-label="Volume control" role="group">
+      <svg id="volume-mute" class="volume-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="#1DB954" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;">
         <path d="M9 9v6h4l5 5V4l-5 5H9z"/>
         <line x1="19" y1="5" x2="5" y2="19"/>
       </svg>
-      <input type="range" id="volume-bar" class="volume-slider" min="0" max="100" value="100" />
-      <svg id="volume-full" class="volume-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="display:none;">
+      <input
+        type="range"
+        id="volume-bar"
+        class="volume-slider"
+        min="0"
+        max="100"
+        value="100"
+        aria-label="Volume slider"
+      />
+      <svg id="volume-full" class="volume-icon" xmlns="http://www.w3.org/2000/svg" fill="#1DB954" viewBox="0 0 24 24" style="display:none;">
         <path d="M3 9v6h4l5 5V4L7 9H3z"/>
         <path d="M16.5 12a4.5 4.5 0 0 1-4.5 4.5"/>
         <path d="M19 8.5a7 7 0 0 1 0 7"/>
       </svg>
     </div>
 
-    <div class="progress-container">
-      <input type="range" id="progress-bar" min="0" max="100" value="0" />
+    <div class="progress-container" aria-label="Song progress control">
+      <input type="range" id="progress-bar" min="0" max="100" value="0" aria-label="Song progress slider" />
     </div>
 
-    <div class="radio-controls">
-      <button id="rewind-btn" aria-label="Rewind 5 seconds">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="#1DB954" viewBox="0 0 24 24" width="24" height="24">
+    <div class="radio-controls" style="margin-top: 12px;">
+      <button id="rewind-btn" aria-label="Rewind 5 seconds" title="Rewind 5 seconds">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#1DB954" viewBox="0 0 24 24" width="24" height="24" >
           <path d="M11 19V5l-7 7 7 7zM18 19V5h-2v14h2z"/>
         </svg>
       </button>
-      <button id="radio-toggle" aria-label="Play/Pause toggle">
+      <button id="radio-toggle" aria-label="Play/Pause toggle" title="Play/Pause">
         <svg id="play-icon" xmlns="http://www.w3.org/2000/svg" fill="#1DB954" viewBox="0 0 24 24" width="24" height="24">
           <path d="M8 5v14l11-7z"/>
         </svg>
@@ -111,8 +121,8 @@
           <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
         </svg>
       </button>
-      <button id="fastforward-btn" aria-label="Fast forward 5 seconds">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="#1DB954" viewBox="0 0 24 24" width="24" height="24">
+      <button id="fastforward-btn" aria-label="Fast forward 5 seconds" title="Fast forward 5 seconds">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#1DB954" viewBox="0 0 24 24" width="24" height="24" >
           <path d="M13 5v14l7-7-7-7zM6 19V5h2v14H6z"/>
         </svg>
       </button>
