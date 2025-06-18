@@ -1,0 +1,329 @@
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Sora', sans-serif;
+    background: linear-gradient(160deg, #1DB954, #1A1F1C, #0E0F0E);
+    background-size: 200% 200%;
+    animation: gradientMove 12s ease infinite;
+    color: white;
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    position: relative;
+    padding-bottom: 140px;
+  }
+  @keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .hackclub-banner {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 256px;
+    border: none;
+    z-index: 9999;
+  }
+
+  .wave-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 60vh;
+    background: linear-gradient(135deg, #1DB954 20%, #191414 80%);
+    clip-path: polygon(
+      0 25%, 10% 20%, 20% 25%, 30% 20%, 40% 25%, 50% 20%, 
+      60% 25%, 70% 20%, 80% 25%, 90% 20%, 100% 25%, 100% 0, 0 0
+    );
+    animation: wave 6s ease-in-out infinite;
+    z-index: -1;
+  }
+  @keyframes wave {
+    0%, 100% {
+      clip-path: polygon(
+        0 25%, 10% 20%, 20% 25%, 30% 20%, 40% 25%, 50% 20%, 
+        60% 25%, 70% 20%, 80% 25%, 90% 20%, 100% 25%, 100% 0, 0 0
+      );
+    }
+    50% {
+      clip-path: polygon(
+        0 20%, 10% 25%, 20% 20%, 30% 25%, 40% 20%, 50% 25%, 
+        60% 20%, 70% 25%, 80% 20%, 90% 25%, 100% 20%, 100% 0, 0 0
+      );
+    }
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 2rem 2rem;
+    position: relative;
+    z-index: 10;
+  }
+
+  .section {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+  }
+  .section.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .hero {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .hero h1 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  .hero p {
+    font-size: 1.3rem;
+    font-weight: 400;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .logo-container {
+    margin: 3rem auto 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-size: 3rem;
+    user-select: none;
+    color: #1DB954;
+  }
+  .plus-sign {
+    font-weight: 700;
+    pointer-events: none;
+    text-shadow: 0 0 8px #1DB954aa;
+  }
+  .spotify-logo,
+  .hackclub-logo {
+    width: 140px;
+    filter: drop-shadow(0 0 10px #1DB954aa);
+    cursor: pointer;
+    transition: transform 1s ease;
+  }
+  .hackclub-logo {
+    filter: drop-shadow(0 0 10px #ffffffaa);
+  }
+
+  /* Rotation animation */
+  .rotate {
+    animation: spin 1s linear forwards;
+  }
+  @keyframes spin {
+    from { transform: rotate(0deg);}
+    to { transform: rotate(360deg);}
+  }
+
+  .submission {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  button {
+    background-color: #1DB954;
+    color: #191414;
+    border: none;
+    padding: 0.8rem 1.6rem;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 0.5rem;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 0 10px #1DB95488;
+  }
+  button:hover {
+    background-color: #1ed760;
+    transform: scale(1.05);
+  }
+  button.slack {
+    background-color: #fff;
+    color: #1DB954;
+  }
+  button.slack:hover {
+    background-color: #1DB954;
+  }
+
+  .faq {
+    margin-top: 2rem;
+  }
+  .faq h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  .faq ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    font-size: 1rem;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .faq li p {
+    margin-top: 0.3rem;
+    line-height: 1.5;
+  }
+  a {
+    color: #1DB954;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  a:hover {
+    color: #1ed760;
+  }
+
+  .radio-player {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #121212cc;
+    border: 2px solid #1DB954;
+    border-radius: 16px;
+    width: 280px;
+    padding: 15px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    box-shadow: 0 0 15px #1DB954aa;
+    font-family: 'Sora', sans-serif;
+    color: #1DB954;
+    user-select: none;
+    z-index: 9999;
+  }
+  .radio-screen {
+    font-weight: 600;
+    font-size: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: 1px solid #1DB954;
+    border-radius: 6px;
+    padding: 6px 12px;
+    background: #000000cc;
+    box-shadow: inset 0 0 8px #1DB954cc;
+  }
+  .radio-controls {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    justify-content: center;
+  }
+  .radio-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+    flex-shrink: 0;
+  }
+  .radio-controls button:hover {
+    background: #1DB95433;
+  }
+
+  .progress-container {
+    width: 100%;
+  }
+  input[type=range] {
+    width: 100%;
+    height: 8px;
+    border-radius: 6px;
+    background: #222;
+    outline: none;
+    cursor: pointer;
+    box-shadow: inset 0 0 5px #1DB954aa;
+    transition: background 0.3s ease;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #1DB954;
+    cursor: pointer;
+    box-shadow: 0 0 10px #1DB954bb;
+    margin-top: -6px;
+    transition: background 0.3s ease;
+  }
+  input[type=range]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #1DB954;
+    cursor: pointer;
+    box-shadow: 0 0 10px #1DB954bb;
+    transition: background 0.3s ease;
+  }
+  input[type=range]:hover {
+    background: #1DB95433;
+  }
+
+  /* Volume slider smaller and half width */
+  .volume-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 140px;
+    margin-bottom: 8px;
+  }
+  .volume-slider {
+    width: 50%;
+    height: 8px;
+  }
+
+  .volume-icon {
+    width: 22px;
+    height: 22px;
+    fill: #1DB954;
+    filter: drop-shadow(0 0 6px #1DB954aa);
+  }
+
+  @media (max-width: 768px) {
+  .hackclub-banner {
+    width: 140px;
+  }
+
+  .radio-player {
+    display: none;
+  }
+}
+
+/* FAQ card style */
+.faq li {
+  background: #121212cc;
+  border: 1px solid #1DB954aa;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 0 10px #1DB95433;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hackclub-banner {
+    width: 140px;
+  }
+
+  .radio-player {
+    display: none;
+  }
+}
