@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Pulse</title>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
+<title>Pulse</title>
 </head>
+  
 <body>
   <a href="https://hackclub.com/" class="hackclub-link">
     <img
       src="https://assets.hackclub.com/banners/2025.svg"
       alt="Hack Club"
-      class="hackclub-banner"
-    />
+      class="hackclub-banner"/>
   </a>
 
   <div class="wave-bg"></div>
@@ -42,35 +42,45 @@
         <li class="faq-card"><strong>What is a YSWS?</strong>
           <p>YSWS is a challenge where you create cool projects using the Spotify API and earn awesome rewards for your work.</p>
         </li>
+        
         <li class="faq-card"><strong>Can I participate more than once?</strong>
           <p>Each participant can submit only one project.</p>
         </li>
+        
         <li class="faq-card"><strong>What if I need help with the API?</strong>
           <p>Check the Spotify API documentation or ask in #pulse-ysws on Slack.</p>
         </li>
+        
         <li class="faq-card"><strong>How much time do I need to recieve Spotify Premium?</strong>
           <p>You just need a mininium of 6 hours.</p>
         </li>
+        
         <li class="faq-card"><strong>How will I receive my Spotify Premium?</strong>
           <p>The submission deadline is July 8th, 2025. Late entries will not be accepted.</p>
         </li>
+        
         <li class="faq-card"><strong>What are the prizes?</strong>
           <p>If you ship a project that qualifies, you will get a 3 month gift card that can be redeemed for Spotify Premium.</p>
         </li>
+        
         <li class="faq-card"><strong>Who can participate?</strong>
           <p>Any middle or high schooler.</p>
         </li>
+        
         <li class="faq-card"><strong>How do I track my time?</strong>
-          <p><a href="https://hackatime.hackclub.com">Hackatime</a></p>
+          <p><a href="https://hackatime.hackclub.com" target="_blank">Hackatime</a></p>
         </li>
+        
         <li class="faq-card"><strong>What kinds of projects can I build?</strong>
           <p>You can create playlist generators, music visualizers, emotion-based music players, Spotify bots, mood trackers, collaborative playlists, or any creative app that uses the Spotify API.</p>
         </li>
+        
         <li class="faq-card"><strong>What are the rules?</strong>
           <p>You need to use the Spotify API and have at least 6 hours on Hackatime!</p>
         </li>
+        
         <li class="faq-card"><strong>Where can I learn more?</strong>
-          <p>Visit <a href="https://hackclub.com">hackclub.com</a> and join the Slack to ask questions in #pulse-ysws.</p>
+          <p>Visit <a href="https://hackclub.com" target="_blank">hackclub.com</a> and join the Slack to ask questions in #pulse-ysws.</p>
         </li>
       </ul>
     </section>
@@ -94,8 +104,8 @@
         min="0"
         max="100"
         value="100"
-        aria-label="Volume slider"
-      />
+        aria-label="Volume slider"/>
+      
       <svg id="volume-full" class="volume-icon" xmlns="http://www.w3.org/2000/svg" fill="#1DB954" viewBox="0 0 24 24" style="display:none;">
         <path d="M3 9v6h4l5 5V4L7 9H3z"/>
         <path d="M16.5 12a4.5 4.5 0 0 1-4.5 4.5"/>
@@ -113,14 +123,17 @@
           <path d="M11 19V5l-7 7 7 7zM18 19V5h-2v14h2z"/>
         </svg>
       </button>
+      
       <button id="radio-toggle" aria-label="Play/Pause toggle" title="Play/Pause">
         <svg id="play-icon" xmlns="http://www.w3.org/2000/svg" fill="#1DB954" viewBox="0 0 24 24" width="24" height="24">
           <path d="M8 5v14l11-7z"/>
         </svg>
+        
         <svg id="pause-icon" xmlns="http://www.w3.org/2000/svg" fill="#1DB954" viewBox="0 0 24 24" width="24" height="24" style="display:none;">
           <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
         </svg>
       </button>
+      
       <button id="fastforward-btn" aria-label="Fast forward 5 seconds" title="Fast forward 5 seconds">
         <svg xmlns="http://www.w3.org/2000/svg" fill="#1DB954" viewBox="0 0 24 24" width="24" height="24" >
           <path d="M13 5v14l7-7-7-7zM6 19V5h2v14H6z"/>
@@ -128,7 +141,7 @@
       </button>
     </div>
   </div>
-
+  
   <script src="script.js"></script>
 </body>
 </html>
